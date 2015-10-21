@@ -37,4 +37,4 @@
 
 - tags has_many :protos
 
-- like belongs_to  user
+- like belongs_to  :user
