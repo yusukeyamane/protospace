@@ -1,34 +1,40 @@
 # Datebase Design
 
 ## Userモデル
-  - prototos_id
   - profile
-  - works
+  - work
   - email
   - password
-  - image_url
+  - avatar
+  - timestanps
 
 ## ProtoTypeモデル
+  - title
   - catch_copy
-  - consept
-  - tag
-  - image_url
+  - concept
+  - avatar
+  - user_id
 
-## Comments
+
+## ProtoTypeImageモデル
+  - prototype_id
+
+## Commentsモデル
   - text
-  - product_id
+  - user_id
 
-## Tags
-  - tag_name
+## LIkeモデル
+  - user_id
   - product_id
-
 
 # Associations
 
 - users has_many :protos, :comments
 
-- protos has_many :comments, :tags
+- prototypes has_many :comments, :tags, :likes,
 
-- comments belongs_to :users, :protos
+- comments belongs_to :user, :proto
 
 - tags has_many :protos
+
+- like belongs_to  user
