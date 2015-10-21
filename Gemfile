@@ -46,3 +46,5 @@ group :development do
 end
 
 gem 'simple_form'
+gem 'erb2haml'
+gem 'haml-rails'
