@@ -27,7 +27,6 @@ gem 'bootstrap-sass'
 gem 'erb2haml'
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0.3'
-gem 'spring'
 gem 'pry-rails'
 gem 'devise'
 gem 'paperclip'
@@ -46,8 +45,8 @@ gem 'twitter-bootstrap-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0.0.beta4'
