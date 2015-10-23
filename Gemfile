@@ -29,12 +29,12 @@ gem 'haml-rails'
 gem 'sass-rails', '~> 5.0.3'
 gem 'pry-rails'
 gem 'devise'
-gem 'carrirewave'
+gem 'carrierwave'
 gem 'kaminari'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
-
+gem 'rmagick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
