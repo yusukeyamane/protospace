@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta4'
+gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.3.18'
 # Use SCSS for stylesheets
@@ -29,12 +29,12 @@ gem 'haml-rails'
 gem 'sass-rails', '~> 5.0.3'
 gem 'pry-rails'
 gem 'devise'
-gem 'paperclip'
+gem 'carrierwave'
 gem 'kaminari'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
-
-
+gem 'simple_form'
+gem 'rmagick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

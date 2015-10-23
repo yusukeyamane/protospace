@@ -1,8 +1,6 @@
 class UserController < ApplicationController
-  def index
-  end
-  def new
-  end
-  def edit
+  private
+  def user_params
+    params.require(:user).permit(:name, :description, :avatar)
   end
 end
