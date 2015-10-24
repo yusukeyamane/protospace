@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only:  [:new, :index, :new]
-  resources :login, only: [:index]
   resources :top, only: [:index]
   resources :proto, only: [:index, :new]
   # The priority is based upon order of creation: first created -> highest priority.
