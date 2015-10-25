@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
   resources :users, only: [:edit, :index, :new]
   resources :proto, only: [:index, :new]
   # The priority is based upon order of creation: first created -> highest priority.
