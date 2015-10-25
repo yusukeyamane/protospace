@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151025043106) do
     t.text     "profile",                limit: 65535
     t.text     "work",                   limit: 65535
     t.string   "avatar",                 limit: 255
-    t.string   "user_name",              limit: 255
+    t.string   "name",                   limit: 255
     t.text     "member_of",              limit: 65535
   end
 
