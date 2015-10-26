@@ -1,30 +1,30 @@
-%form.container.user-new{action: ""}
+%form.container.user-new
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
-        .col-md-12
-          %h2
-            Edit Profile
-            .user-name_image.row
-              .user-name.col-md-10
-                = f.text_field :name, placeholder: "Username", value: "#{@user.name}"
-              .user-image.col-md-2{ style: 'background-image" url(http://泣ける動画.com/wp-content/uploads/2015/01/t0205-01.jpg);' }
-                %button.btn.btn-primary Change image
-                %input{ type: "file" }/
-            = f.text_field :email, placeholder: "E-Mail", value: "#{@user.email}"
-            = f.text_field :password, placeholder: "Password"
-        .col-md-12
-          %h4 Member of
-          .user-user-member.row
-            .user-name.col-md-12
-              = f.text_field :member, placeholder: "Member", value: "#{@user.member}"
-          %h4 Profile
-          .user-user-profile.row
-            .user-name.col-md-12
-              = f.text_area :name, cols: "30", rows: "4", placeholder: "#{@user.profile}"
-          %h4 Works
+      .col-md-12
+        %h2
+          Edit Profile
           .user-name_image.row
-            .user-name.col-md-12
-              = f.text_area :name, cols: "30", rows: "4", placeholder: "#{@user.work}"
-      .row.text-center.user-btn
-        = f.submit "SAVE", class: "btn btn-lg btn-primary btn-block"
+            .user-name.col-md-10
+              = f.text_field :name, placeholder: "Username", value: "#{@user.name}"
+            .user-image.col-md-2
+              = f.file_field :avatar
+              %button.btn.btn-primary Change image
+          = f.text_field :email, placeholder: "E-Mail", value: "#{@user.email}"
+          = f.text_field :password, placeholder: "Password"
+      .col-md-12
+        %h4 Member of
+        .user-user-member.row
+          .user-name.col-md-12
+            = f.text_field :member, placeholder: "Member", value: "#{@user.member}"
+        %h4 Profile
+        .user-user-profile.row
+          .user-name.col-md-12
+            = f.text_area :name, cols: "30", rows: "4", placeholder: "Profile", value: "#{@user.profile}"
+        %h4 Works
+        .user-name_image.row
+          .user-name.col-md-12
+            = f.text_area :name, cols: "30", rows: "4", placeholder: "Works", value: "#{@user.work}"
+        .row.text-center.user-btn
+          = f.submit "SAVE", class: "btn btn-lg btn-primary btn-block"
