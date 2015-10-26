@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151026021600) do
 
   create_table "proto_type_images", force: :cascade do |t|
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 20151026021600) do
     t.text     "work",                   limit: 65535
     t.string   "avatar",                 limit: 255
     t.string   "name",                   limit: 255
-    t.text     "member_of",              limit: 65535
+    t.string   "member",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

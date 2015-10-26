@@ -11,10 +11,10 @@
         = f.password_field :password, placeholder: "Password", required: true, class: "form-control"
       .checkbox
         %label
-          %input#user_remember_me{name: "user[remember_me]", type: "checkbox", value: "1"}/
+          %input#user_remember_me{ name: "user[remember_me]", type: "checkbox", value: "1" }
           Remember me
       = f.submit 'Sign in', class: "btn btn-lg btn-primary btn-block"
     .text-center
       %p
         Not a member?
-        = link_to 'Sign up now', user_registration_path
+        = link_to 'Sign up now', new_user_registration_path
