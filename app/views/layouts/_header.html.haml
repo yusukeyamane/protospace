@@ -4,9 +4,8 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    .navbar-brand
-      = link_to "", class: ".navbar-brand"
-      = image_tag("logo.png", :alt => "PROTO TYPE - SHARE THE PROTOTYPE", :height => "36px")
+    %a.navbar-brand{ href: root_path }
+      = image_tag( "logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "36px" )
     .navbar-collapse.collapse.navbar-responsive-collapse
       //not login
       -unless user_signed_in?
