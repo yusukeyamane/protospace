@@ -32,10 +32,12 @@
 
 - users has_many :protos, :comments
 
-- prototypes has_many :comments, :tags, :likes,
+- prototypes has_many :comments, :tags, :likes, prototypes_images
 
 - comments belongs_to :user, :proto
 
 - tags has_many :protos
 
 - like belongs_to  :user
+
+- prototypes_image belongs_to :prototypes
