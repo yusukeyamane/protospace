@@ -14,6 +14,7 @@
   - concept
   - avatar
   - user_id
+  - tag_id
 
 
 ## ProtoTypeImageモデル
