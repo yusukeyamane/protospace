@@ -1,5 +1,5 @@
-%form.container.user-new
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+.container.user-new
+  = form_for @user do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
       .col-md-12
@@ -12,7 +12,7 @@
               = f.file_field :avatar
               %button.btn.btn-primary Change image
           = f.text_field :email, placeholder: "E-Mail", value: "#{@user.email}"
-          = f.text_field :password, placeholder: "Password"
+
       .col-md-12
         %h4 Member of
         .user-user-member.row
@@ -21,10 +21,10 @@
         %h4 Profile
         .user-user-profile.row
           .user-name.col-md-12
-            = f.text_area :name, cols: "30", rows: "4", placeholder: "Profile", value: "#{@user.profile}"
+            = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile", value: "#{@user.profile}"
         %h4 Works
         .user-name_image.row
           .user-name.col-md-12
-            = f.text_area :name, cols: "30", rows: "4", placeholder: "Works", value: "#{@user.work}"
+            = f.text_area :work, cols: "30", rows: "4", placeholder: "Works", value: "#{@user.work}"
         .row.text-center.user-btn
           = f.submit "SAVE", class: "btn btn-lg btn-primary btn-block"
