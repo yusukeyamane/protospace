@@ -16,17 +16,21 @@
   - user_id
   - tag_id
 
-
 ## ProtoTypeImageモデル
   - prototype_id
 
 ## Commentsモデル
   - text
   - user_id
+  - prototype_id
 
 ## LIkeモデル
   - user_id
   - product_id
+
+## Tagモデル
+  - title
+  - prototype_id
 
 # Associations
 
