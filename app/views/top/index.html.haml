@@ -15,8 +15,7 @@
     - @prototypes.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to ""
-          = image_tag("sample")
+          = link_to image_tag("sample"), prototype_path(proto.id)
           .caption
             %h3
               = proto.title
