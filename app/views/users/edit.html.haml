@@ -7,24 +7,24 @@
           Edit Profile
           .user-name_image.row
             .user-name.col-md-10
-              = f.text_field :name, placeholder: "Username", value: "#{@user.name}"
+              = f.text_field :name, placeholder: "Username", value: "#{ @user.name }"
             .user-image.col-md-2
               = f.file_field :avatar
               %button.btn.btn-primary Change image
-          = f.text_field :email, placeholder: "E-Mail", value: "#{@user.email}"
+          = f.text_field :email, placeholder: "E-Mail", value: "#{ @user.email }"
 
       .col-md-12
         %h4 Member of
         .user-user-member.row
           .user-name.col-md-12
-            = f.text_field :member, placeholder: "Member", value: "#{@user.member}"
+            = f.text_field :member, placeholder: "Member", value: "#{ @user.member }"
         %h4 Profile
         .user-user-profile.row
           .user-name.col-md-12
-            = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile", value: "#{@user.profile}"
+            = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile", value: "#{ @user.profile }"
         %h4 Works
         .user-name_image.row
           .user-name.col-md-12
-            = f.text_area :work, cols: "30", rows: "4", placeholder: "Works", value: "#{@user.work}"
+            = f.text_area :work, cols: "30", rows: "4", placeholder: "Works", value: "#{ @user.work }"
         .row.text-center.user-btn
           = f.submit "SAVE", class: "btn btn-lg btn-primary btn-block"
