@@ -9,13 +9,14 @@
           = link_to 'Popular PROTO', "#"
         %li{ role: "presentation" }
           = link_to 'Newest PROTO'
-      %button.btn.btn-default.col-lg-1{ :type => "button" } View Tags
+      %button.btn.btn-default.col-lg-1{ type: "button" } View Tags
 .container.proto-list
   .row
     - @prototypes.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag("#{proto.avatar}"), prototype_path(proto.id)
+          - proto.proto_type_images.each do |image|
+            = link_to image_tag(image.main_avatar.url), prototype_path(proto.id)
           .caption
             %h3
               = proto.title
