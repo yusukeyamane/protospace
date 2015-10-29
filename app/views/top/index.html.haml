@@ -15,13 +15,13 @@
     - @prototypes.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag("sample"), prototype_path(proto.id)
+          = link_to image_tag("#{proto.avatar}"), prototype_path(proto.id)
           .caption
             %h3
               = proto.title
             .proto-meta
               .proto-user
-                = link_to "#{proto.user.name}", user_path(proto.user.id)
+                = link_to "#{ proto.user.name }", user_path(proto.user.id)
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
