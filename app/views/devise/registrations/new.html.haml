@@ -18,7 +18,7 @@
           %h4 Member of
           .user-user-member.row
             .user-name.col-md-12
-              = f.text_area :member_of, placeholder: "Member"
+              = f.text_area :member, placeholder: "Member"
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
@@ -27,5 +27,5 @@
           .user-name_image.row
             .user-name.col-md-12
               = f.text_area :work, cols: "30", rows: "4", placeholder: "Works"
-        .row.text-center.user-btn
-          = f.submit "Sign up", class: "btn btn-lg btn-primary btn-block"
+          .row.text-center.user-btn
+            = f.submit "Sign up", class: "btn btn-lg btn-primary btn-block"
