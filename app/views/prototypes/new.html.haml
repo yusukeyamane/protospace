@@ -1,24 +1,26 @@
 .container.proto-new
-  = form_for(@prototype) do |f|
+  = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
       .row
         .col-md-12
+        = f.fields_for :proto_type_images do |df|
+          = df.hidden_field :id
           .cover-image-upload
-            = f.file_field :avatar
-        .col-md-12
-          %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.file_field :avatar
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.file_field :avatar
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+            = df.file_field :main_avatar
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = df.file_field :side_avatar
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = df.file_field :side_avatar
+              %li.list-group-item.col-md-4
+                .image-upload-plus
+                  %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: "Catch Copy"
