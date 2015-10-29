@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    @prototypes = Prototype.all.page(params[:page]).per(8)
+    @prototypes = Prototype.includes(:proto_type_images).order('created_at DESC').page(params[:page]).per(8)
   end
 end
