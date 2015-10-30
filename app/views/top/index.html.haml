@@ -12,17 +12,16 @@
       %button.btn.btn-default.col-lg-1{ type: "button" } View Tags
 .container.proto-list
   .row
-    - @prototypes.each do |proto|
+    - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          - proto.prototype_images.each do |image|
-            = link_to image_tag(image), prototype_path(proto.id)
+          = link_to image_tag(prototype.prototype_images.main.first.image), prototype_path(prototype.id)
           .caption
             %h3
-              = proto.title
+              = prototype.title
             .proto-meta
               .proto-user
-                = link_to "#{ proto.user.name }", user_path(proto.user_id)
+                = link_to "#{ prototype.user.name }", user_path(prototype.user_id)
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
@@ -36,7 +35,7 @@
       %a{ "aria-label" => "Previous", href: "#" }
         %span{"aria-hidden" =>  "true"} «
     %li.active
-      %a{href: "#"}
+      %a{ href: "#" }
         1
         %span.sr-only (current)
     %li

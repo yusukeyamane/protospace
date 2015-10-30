@@ -10,7 +10,6 @@ class PrototypesController < ApplicationController
 
   def create
     current_user.prototypes.create(prototype_params)
-    binding.pry
     redirect_to root_path and return
   end
 
