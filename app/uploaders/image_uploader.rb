@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class CapturedImageUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -47,14 +47,5 @@ class CapturedImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
-  end
-
-  version :thumb do
-    process :resize_to_limit => [300, 300]
-  end
 
 end
