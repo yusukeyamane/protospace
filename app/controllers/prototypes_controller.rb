@@ -5,12 +5,12 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    @prototype.user_id = current_user.id
-    @prototype.proto_type_images.build
- end
+    @prototype.prototype_images.build
+  end
 
   def create
-    @prototype = Prototype.create(prototype_params)
+    current_user.prototypes.create(prototype_params)
+    binding.pry
     redirect_to root_path and return
   end
 
@@ -20,15 +20,11 @@ class PrototypesController < ApplicationController
       :title,
       :catch_copy,
       :concept,
-      :user_id,
-      proto_type_images_attributes: [
-        :main_avatar,
-        :side_avatar,
+      prototype_images_attributes: [
+        :image,
+        :status,
         :prototype_id
       ]
     )
   end
-  # def prototype_iamges_params
-  #   params.require(:prototype).permit(:main_avatar, :side_avatar, :prototype_id)
-  # end
 end

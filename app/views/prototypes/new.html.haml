@@ -6,18 +6,17 @@
           = f.text_field :title, placeholder: "Title", class: "proto-new-title"
       .row
         .col-md-12
-        = f.fields_for :proto_type_images do |df|
-          = df.hidden_field :id
+        = f.fields_for :prototype_images do |df|
           .cover-image-upload
-            = df.file_field :main_avatar
+            = df.file_field :image
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = df.file_field :side_avatar
+                  = df.file_field :image
               %li.list-group-item.col-md-4
                 .image-upload
-                  = df.file_field :side_avatar
+                  = df.file_field :image
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
