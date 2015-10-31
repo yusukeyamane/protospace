@@ -53,8 +53,4 @@ class CapturedImageUploader < CarrierWave::Uploader::Base
     name.downcase
   end
 
-  version :thumb do
-    process :resize_to_limit => [300, 300]
-  end
-
 end
