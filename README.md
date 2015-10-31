@@ -16,26 +16,32 @@
   - user_id
   - tag_id
 
-
 ## ProtoTypeImageモデル
   - prototype_id
 
 ## Commentsモデル
   - text
   - user_id
+  - prototype_id
 
 ## LIkeモデル
   - user_id
   - product_id
 
+## Tagモデル
+  - title
+  - prototype_id
+
 # Associations
 
 - users has_many :protos, :comments
 
-- prototypes has_many :comments, :tags, :likes,
+- prototypes has_many :comments, :tags, :likes, prototypes_images
 
 - comments belongs_to :user, :proto
 
 - tags has_many :protos
 
 - like belongs_to  :user
+
+- prototypes_image belongs_to :prototypes
