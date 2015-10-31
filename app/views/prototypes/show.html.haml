@@ -8,8 +8,10 @@
           %h4#top-aligned-media.media-heading
             Top aligned media
           .proto-user
-            = link_to "#{ @prototype.user.name } ", user_path(@prototype.user.id)
-            %span.degree= " #{ @prototype.user.member } #{ @prototype.user.work } "
+            = link_to "@prototype.user.name", user_path(@prototype.user)
+            %span.degree
+            = @prototype.user.member
+            = @prototype.user.work
 
     .col-md-6.text-right
       %button.btn.btn-default
@@ -18,12 +20,12 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag("#{ @prototype.prototype_images.main.first.image }", class: 'img-responsive')
+      = image_tag(@prototype.prototype_images.main.first.image, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
         - @prototype.prototype_images.sub.each do |prototype_image|
           %li.list-group-item
-            = image_tag("#{ prototype_image.image }", class: 'img-responsive')
+            = image_tag(prototype_image.image, class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
