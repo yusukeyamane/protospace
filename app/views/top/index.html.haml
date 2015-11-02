@@ -14,25 +14,30 @@
   .row
     - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
-        - if prototype.user_id = current_user.id
-          .dropdown.drop_menu_location
-            %button#dropdownMenu.btn.btn-default.dropdown-toggle.date:{ toggle: "dropdown" }
-              Action
-          .thumbnail
-            = link_to image_tag(prototype.prototype_images.main.first.image), prototype_path(prototype.id)
-            .caption
-              %h3
-                = prototype.title
-              .proto-meta
-                .proto-user
-                  = link_to prototype.user.name, user_path(prototype.user)
-                .proto-posted
-                  Apr 26
-            %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad' "#", class: "btn btn-default"
-              %li
-                = link_to 'wireframe' "#", class: "btn btn-default"
+        .thumbnail
+          = link_to image_tag(prototype.prototype_images.main.first.image), prototype_path(prototype.id)
+          - if user_signed_in? && prototype.user_id == current_user.id
+            .dropdown.drop_menu_location.open
+              %button#dropdownMenu.btn.btn-default.dropdown.open-toggledate:{ toggle: "dropdown" }
+                Action
+              %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenu1" }
+                %li
+                  = link_to 'Delete', prototype_path(prototype),  action: "destroy", rel: "nofollow"
+                %li
+                  = link_to 'Edit', edit_prototype_path(prototype), rel: "nofollow"
+          .caption
+            %h3
+              = prototype.title
+            .proto-meta
+              .proto-user
+                = link_to prototype.user.name, user_path(prototype.user)
+              .proto-posted
+                Apr 26
+          %ul.proto-tag-list.list-inline
+            %li
+              = link_to 'iPad' "#", class: "btn btn-default"
+            %li
+              = link_to 'wireframe' "#", class: "btn btn-default"
 .text-center
   %ul.pagination
     %li.disabled
