@@ -159,6 +159,10 @@ footer {
     left: 20px;
 }
 
+.open>.btn-default.dropdown-toggle {
+    background-image: none;
+}
+
 /* -- Ripple effect -------------------------------- */
 .ripple-effect {
   position: relative;
