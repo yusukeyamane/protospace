@@ -1,8 +1,8 @@
 = form_for @prototype, html: { class: "container proto-new" } do |f|
-  = if @prototype.errors.any?
+  - if @prototype.errors.any?
     .alert.alert-danger
       %ul.image-upload
-        = @prototype.errors.full_messages.each do |message|
+        - @prototype.errors.full_messages.each do |message|
           %li
             = message
 
@@ -12,14 +12,14 @@
         = f.text_field :title, placeholder: "Title", class: "proto-new-title"
     .row
       .col-md-12
-      = f.fields_for :prototype_images do |main_image|
+      = f.fields_for :prototype_images, (@prototype) do |main_image|
         .cover-image-upload
           = main_image.file_field :image
           = main_image.hidden_field :status, value: 1
       .col-md-12
         %ul.proto-sub-list.list-group
           - 2.times do
-            = f.fields_for :prototype_images do |sub_image|
+            = f.fields_for :prototype_images, (@prototype) do |sub_image|
               %li.list-group-item.col-md-4
                 .image-upload
                   = sub_image.file_field :image
