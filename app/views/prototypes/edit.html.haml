@@ -1,4 +1,11 @@
 = form_for @prototype, html: { class: "container proto-new" } do |f|
+  - if @prototype.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul.image-upload
+        - @prototype.errors.full_messages.each do |message|
+          %li
+            = message
+
   = f.hidden_field :user_id
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
