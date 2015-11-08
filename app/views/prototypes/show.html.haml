@@ -42,5 +42,16 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num= "(#{@comments.count})"
-    = render partial: "comments"
+      %span.num
+        = "(#{@comments.count})"
+    .col-md-8#comment_area
+      #comment_list
+        = render partial: 'prototypes/comment', collection: @comments
+      = form_for [@prototype,@comment], class:"form-inline", id:"new_comment",html: {method: "post"}, remote: true do |f|
+        %h4
+          Write a comment
+        .row
+          .form-group.col-md-10
+            = f.text_area :text, placeholder: "Your comments", class: "form-control", row: "3", id: "comment_text"
+          .form-group.col-md-2
+            = f.submit "Comment", class: "btn btn-primary"
