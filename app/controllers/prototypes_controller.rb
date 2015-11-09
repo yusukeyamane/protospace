@@ -14,23 +14,14 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = current_user.prototypes.new(prototype_params)
-    if @prototype.save
-        redirect_to root_path
-    else
-        render :new
-    end
-
+    @prototype.save ? (redirect_to root_path) : (render :new)
   end
 
   def edit
   end
 
   def update
-      if @prototype.update(update_params)
-        redirect_to root_path
-      else
-        render :edit
-      end
+      @prototype.update(update_params) ? (redirect_to root_path) : (render :edit)
   end
 
   def destroy
