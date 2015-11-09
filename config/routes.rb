@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :show, :update]
   resources :prototypes, only: [:show, :new, :update, :create, :edit] do
-    resources :comments, only:[:new,:create]
+    resources :comments, only: [:new, :create]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

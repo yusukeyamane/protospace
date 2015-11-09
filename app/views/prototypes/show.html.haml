@@ -43,11 +43,11 @@
     %h4.col-md-12
       Comments
       %span.num
-        = "(#{@comments.count})"
+        = "(#{ @comments.count })"
     .col-md-8#comment_area
       #comment_list
         = render partial: 'prototypes/comment', collection: @comments
-      = form_for [@prototype,@comment], class:"form-inline", id:"new_comment",html: {method: "post"}, remote: true do |f|
+      = form_for [@prototype, @comment], class: "form-inline", id: "new_comment",html: { method: "post" }, remote: true do |f|
         %h4
           Write a comment
         .row
