@@ -11,13 +11,21 @@
             = link_to "by #{@prototype.user.name}", user_path(@prototype.user)
             %span.degree
               = @prototype.user.profile
-
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num
-          = @prototype.likes.count
+      = render @prototypes
+      - if @prototype.like_user(current_user)
+        %button.btn.btn-default
+          = image_tag("icon_heart_red.svg")
+          Like
+          %span.num
+            = @prototype.likes.count
+      - else
+        %button.btn.btn-default.decrement-button
+          = image_tag("icon_heart.svg")
+          Like
+          %span.num
+            = @prototype.likes.count
+
   .row
     .col-md-9
       = image_tag(@prototype.prototype_images.main.first.image, class: 'img-responsive')
@@ -48,12 +56,12 @@
     .col-md-8#comment_area
       #comment_list
         = render partial: 'prototypes/comment', collection: @comments
-    - if user_signed_in?
-      = form_for [@prototype, @comment], class: "form-inline", id: "new_comment",html: { method: "post" }, remote: true do |f|
-        %h4
-          Write a comment
-        .row
-          .form-group.col-md-10
-            = f.text_area :text, placeholder: "Your comments", class: "form-control", row: "3", id: "comment_text"
-          .form-group.col-md-2
-            = f.submit "Comment", class: "btn btn-primary"
+      - if user_signed_in?
+        = form_for [@prototype, @comment], class: "form-inline", id: "new_comment",html: { method: "post" }, remote: true do |f|
+          %h4
+            Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area :text, placeholder: "Your comments", class: "form-control", row: "3", id: "comment_text"
+            .form-group.col-md-2
+              = f.submit "Comment", class: "btn btn-primary"
