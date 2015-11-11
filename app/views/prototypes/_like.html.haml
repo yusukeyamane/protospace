@@ -1,0 +1,16 @@
+- if @prototype.like_user(current_user)
+  = form_for [@prototype, @like], remote: true do |f|
+    %button.btn.btn-default.increment-button
+      = f.submit "Like", type: "hidden"
+      = image_tag("icon_heart_red.svg")
+      Like
+      %span.num
+        = @prototype.likes.count
+- else
+  = form_for [@prototype, @like] do |f|
+    %button.btn.btn-default.decrement-button
+      = f.submit "Like", type: "hidden"
+      = image_tag("icon_heart.svg")
+      Like
+      %span.num
+        = @prototype.likes.count
