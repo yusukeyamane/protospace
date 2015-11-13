@@ -3,6 +3,7 @@ class Prototype < ActiveRecord::Base
   has_many :likes
   has_many :comments
   has_many :prototype_images, inverse_of: :prototype
+  acts_as_taggable
 
   def like_user(user)
     likes.find_by(user_id: user.id)
