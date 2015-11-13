@@ -2,9 +2,9 @@ class PrototypesController < ApplicationController
   before_action :prototype_find, only: [:show, :edit, :update, :destroy]
 
   def show
-    @prototype = Prototype.find(params[:id])
     @comments = @prototype.comments.all
     @comment = @prototype.comments.build
+    @prototype.likes.blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id])
   end
 
   def new
