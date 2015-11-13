@@ -4,8 +4,7 @@ class PrototypesController < ApplicationController
   def show
     @comments = @prototype.comments.all
     @comment = @prototype.comments.build
-    @like = @prototype.likes.build
-    @likes = @prototype.likes.all
+    @prototype.likes.blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id])
   end
 
   def new
