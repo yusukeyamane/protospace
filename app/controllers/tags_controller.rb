@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = ActsAsTaggableOn::Tag.most_used
   end
 end
