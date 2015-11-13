@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   def show
     @comments = @prototype.comments.all
     @comment = @prototype.comments.build
-    @prototype.likes.blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id])
+    @prototype.likes.blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id]) if user_signed_in?
   end
 
   def new

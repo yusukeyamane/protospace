@@ -15,8 +15,9 @@
         %span.num
           = @prototype.likes.count
 - else
-  %button.btn.btn-default.increment-button#like-button
-    = link_to image_tag("icon_heart_red.svg")
-    Like
-    %span.num
-      = @prototype.likes.count
+  = link_to new_user_session_path do
+    %button.btn.btn-default.increment-button#like-button
+      = image_tag("icon_heart.svg")
+      Like
+      %span.num
+        = @prototype.likes.count
