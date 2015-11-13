@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
+
+gem 'erb2haml'
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0.3'
 gem 'pry-rails'
@@ -31,7 +33,8 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'simple_form'
+gem 'rmagick'
 gem 'erb2haml'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
