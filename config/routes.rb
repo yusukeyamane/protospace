@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'top#index'
 
   devise_for :users
-  resources :tags, only: [:idnex, :show]
+  resources :tags, only: [:index, :show]
   resources :users, only: [:edit, :show, :update]
   resources :prototypes, only: [:show, :new, :update, :create, :edit] do
     resources :comments, only: [:new, :create]
