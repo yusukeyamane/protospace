@@ -12,7 +12,7 @@
             %span.degree
               = @prototype.user.profile
     .col-md-6.text-right
-      = render partial: 'prototypes/like'
+      = render partial: 'likes/like'
   .row
     .col-md-9
       = image_tag(@prototype.prototype_images.main.first.image, class: 'img-responsive')
@@ -44,7 +44,7 @@
       #comment_list
         = render partial: 'prototypes/comment', collection: @comments
       - if user_signed_in?
-        = form_for [@prototype, @comment], class: "form-inline", id: "new_comment",html: { method: "post" }, remote: true do |f|
+        = form_for [@prototype, @comment], class: "form-inline", id: "new_comment", html: { method: "post" }, remote: true do |f|
           %h4
             Write a comment
           .row
