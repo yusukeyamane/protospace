@@ -7,7 +7,7 @@
         %span.num
           = @prototype.likes.count
   - else
-    = form_for [@prototype, @like], remote: true do |f|
+    = form_for [@prototype, @like], method: :post, remote: true do |f|
       %button.btn.btn-default.decrement-button
         = f.submit "Like", type: "hidden"
         = image_tag("icon_heart.svg")
