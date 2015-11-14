@@ -29,6 +29,10 @@ class PrototypesController < ApplicationController
     redirect_to root_path
   end
 
+  def newest
+    @prototypes = Prototype.includes(:prototype_images).order('created_at DESC').page(params[:page]).per(8)
+  end
+
   private
   def prototype_find
     @prototype = Prototype.find(params[:id])
