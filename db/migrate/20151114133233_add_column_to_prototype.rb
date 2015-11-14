@@ -1,5 +1,5 @@
 class AddColumnToPrototype < ActiveRecord::Migration
   def change
-    add_column :prototypes, :likes_counter, :integer
+    add_column :prototypes, :likes_count, :integer
   end
 end
