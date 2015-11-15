@@ -1,43 +1,5 @@
-.jumbotron
-  .container.text-center
-    = image_tag("header_logo.png", alt:  "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
-.filter-nav
-  .container
-    .row
-      %ul.nav.nav-pills.col-lg-11
-        %li.active{ role: "presentation" }
-          = link_to 'Popular PROTO', "#"
-        %li{ role: "presentation" }
-          = link_to 'Newest PROTO'
-      %button.btn.btn-default.col-lg-1{ type: "button" } View Tags
-.container.proto-list
-  .row
-    - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          = link_to image_tag(prototype.prototype_images.main.first.image), prototype_path(prototype.id)
-          - if user_signed_in? && prototype.user_id == current_user.id
-            .dropdown.drop_menu_location.open
-              %button#dropdownMenu.btn.btn-default.dropdown.open-toggledate:{ toggle: "dropdown" }
-                Action
-              %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenu1" }
-                %li
-                  = link_to 'Delete', prototype_path(prototype),  method: "delete", rel: "nofollow"
-                %li
-                  = link_to 'Edit', edit_prototype_path(prototype), rel: "nofollow"
-          .caption
-            %h3
-              = prototype.title
-            .proto-meta
-              .proto-user
-                = link_to "by #{prototype.user.name}", user_path(prototype.user)
-              .proto-posted
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad', "#", class: "btn btn-default"
-              %li
-                = link_to 'wireframe', "#", class: "btn btn-default"
+= render "layouts/top"
+= render "layouts/protolist"
 .text-center
   %ul.pagination
     %li.disabled

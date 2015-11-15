@@ -4,7 +4,10 @@ class PrototypesController < ApplicationController
   def show
     @comments = @prototype.comments.all
     @comment = @prototype.comments.build
-    @prototype.likes.blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id])
+
+    if user_signed_in?
+      @prototype.likes.where(user_id: current_user.id).blank? ? @like = current_user.likes.build : @like = Like.find_by(prototype_id: params[:id])
+    end
   end
 
   def new
@@ -44,6 +47,8 @@ class PrototypesController < ApplicationController
       :status,
       :prototype_id
       ]
+    ).merge(
+      tag_list: params[:prototype][:tag]
     )
   end
 

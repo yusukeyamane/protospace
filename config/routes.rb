@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root 'top#index'
 
   devise_for :users
-
+  resources :tags, only: [:index, :show]
   resources :users, only: [:edit, :show, :update]
-  resources :prototypes, only: [:show, :new, :update, :create, :edit] do
+  resources :prototypes, only: [:show, :new, :update, :create, :edit, :destroy] do
     resources :comments, only: [:new, :create]
     resources :likes, only: [:new, :create, :destroy]
   end
