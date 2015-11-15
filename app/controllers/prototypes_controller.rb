@@ -48,7 +48,7 @@ class PrototypesController < ApplicationController
       :prototype_id
       ]
     ).merge(
-      tag_list:params[:prototype][:tag]
+      tag_list: params[:prototype][:tag]
     )
   end
 
