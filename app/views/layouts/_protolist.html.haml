@@ -5,8 +5,8 @@
         .thumbnail
           = link_to image_tag(prototype.prototype_images.main.first.image), prototype_path(prototype.id)
           - if user_signed_in? && prototype.user_id == current_user.id
-            .dropdown.drop_menu_location.open
-              %button#dropdownMenu.btn.btn-default.dropdown.open-toggledate:{ toggle: "dropdown" }
+            .dropdown.drop_menu_location
+              %button#dropdownMenu.btn.btn-default.dropdown-toggle{ "aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button" }
                 Action
               %ul.dropdown-menu{ "aria-labelledby" => "dropdownMenu1" }
                 %li
@@ -20,7 +20,7 @@
               .proto-user
                 = link_to "by #{ prototype.user.name }", user_path(prototype.user)
               .proto-posted
-                Apr 26
+                = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
               - prototype.tags.each do |tag|
                 %li
