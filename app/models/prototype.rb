@@ -5,6 +5,8 @@ class Prototype < ActiveRecord::Base
   has_many :prototype_images, inverse_of: :prototype
   acts_as_taggable
 
+  paginates_per 8
+
   def like_user(user)
     likes.find_by(user_id: user.id)
   end

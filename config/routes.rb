@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'top#index'
-
   devise_for :users
+  namespace :prototypes do
+    resources :newest, only: [:index]
+  end
   resources :tags, only: [:index, :show]
   resources :users, only: [:edit, :show, :update]
   resources :prototypes, only: [:show, :new, :update, :create, :edit, :destroy] do
