@@ -13,18 +13,22 @@
         = f.text_field :title, placeholder: "Title", class: "proto-new-title"
     .row
       .col-md-12
-      = f.fields_for :prototype_images, (@prototype.prototype_images.main.first) do |main_image|
-        .cover-image-upload
-          = main_image.file_field :image
-          = main_image.hidden_field :status, value: 1
+        = f.fields_for :prototype_images, (@prototype.prototype_images.main.first) do |main_image|
+          .cover-image-upload.main_image_preview
+            = main_image.file_field :image
+            = main_image.hidden_field :status, value: 1
       .col-md-12
         %ul.proto-sub-list.list-group
-          - 2.times do
-            = f.fields_for :prototype_images, (@prototype.prototype_images.sub.first) do |sub_image|
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = sub_image.file_field :image
-                  = sub_image.hidden_field :status, value: 2
+          = f.fields_for :prototype_images, @prototype do |sub_image|
+            %li.list-group-item.col-md-4
+              .image-upload.sub_image_preview1
+                = sub_image.file_field :image
+                = sub_image.hidden_field :status, value: 2
+          = f.fields_for :prototype_images, @prototype do |sub_image|
+            %li.list-group-item.col-md-4
+              .image-upload.sub_image_preview2
+                = sub_image.file_field :image
+                = sub_image.hidden_field :status, value: 2
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
