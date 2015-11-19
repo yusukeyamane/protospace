@@ -6,15 +6,7 @@ $(window).on('page:update page:load', function() {
   });
   $('.sub_image_preview2 input:file').uploadThumbs({
   });
-  $('#edit-main-image input:file').uploadThumbs({
-  });
-  $('#edit-sub-image1 input:file').uploadThumbs({
-  });
-  $('#edit-sub-image2 input:file').uploadThumbs({
-  });
-  $('#new-user-avatar input:file').uploadThumbs({
-  });
-  $('#edit-user-avatar input:file').uploadThumbs({
+  $('.user_avatar_preview input:file').uploadThumbs({
   });
 
 });
