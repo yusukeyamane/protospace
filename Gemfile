@@ -34,8 +34,10 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 3.4'
-gem 'fog', '~> 1.3.1'
 gem 'config'
+gem 'aws-sdk'
+gem 'nokogiri'
+gem 'fog'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
