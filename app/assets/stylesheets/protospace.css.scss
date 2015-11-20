@@ -564,6 +564,7 @@ body {
       padding: 3px;
       min-width: 75px;
       text-transform: capitalize;
+      z-index: 1;
     }
 
     input {
@@ -630,4 +631,29 @@ body {
       box-shadow: 0 1px 1px #eee;
     }
   }
+}
+
+/* -- preview_image style ------------------------------------ */
+.main_image_preview img {
+  width: 100%;
+  height: 100%;
+}
+
+.sub_image_preview1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.sub_image_preview2 img {
+  width: 100%;
+  height: 100%;
+}
+
+.user_avatar_preview img {
+  border-radius: 50%;
+  width: 76px;
+  height: 76px;
+  position: relative;
+  right: 17px;
+  bottom: 2px;
 }
