@@ -1,12 +1,11 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',
-    :aws_access_key_id      => 'your_access_key_id',
-    :aws_secret_access_key  => 'your_secret_access_key',
-    :region                 => 'chosen_region'
+    :aws_access_key_id      => Settings.aws[:key_id],
+    :aws_secret_access_key  => Settings.aws[:secret_key],
+    :region                 => Settings.aws[:region],
   }
 
-  config.fog_directory = 'your_backet' if Rails.env.production?
-  config.fog_directory = 'your_backet_for_dev' if Rails.env.development?
+  config.fog_directory = Settings.aws[:fog_directory]
 
 end
