@@ -1,5 +1,6 @@
 = render "layouts/newest"
-= render "layouts/protolist"
+.container.proto-list
+  .row
+    = render "layouts/protolist"
 .text-center
-  %ul.pagination
-= paginate @prototypes
+  = paginate @prototypes
