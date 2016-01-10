@@ -10,6 +10,10 @@ class Prototype < ActiveRecord::Base
   def like_user(user)
     likes.find_by(user_id: user.id)
   end
+
+  def validate_image
+  end
+
   validates :title, :catch_copy, :concept, presence: true
   accepts_nested_attributes_for :prototype_images
 end

@@ -17,14 +17,14 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = current_user.prototypes.new(prototype_params)
-    @prototype.save ? (redirect_to root_path) : (render :new)
+    @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
   end
 
   def edit
   end
 
   def update
-      @prototype.update(update_params) ? (redirect_to root_path) : (render :edit)
+      @prototype.update(update_params) ? (redirect_to root_path, notice: 'prototype is scussesfully updated!!') : (render :edit, alert: 'wops somthing went wrong!')
   end
 
   def destroy
