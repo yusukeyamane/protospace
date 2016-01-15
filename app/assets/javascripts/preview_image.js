@@ -1,4 +1,4 @@
-$(window).on('page:update page:load', function() {
+$(window).on('page:update', function() {
 
   $('.main_image_preview input:file').uploadThumbs({
   });
