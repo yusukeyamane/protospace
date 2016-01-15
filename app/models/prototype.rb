@@ -1,8 +1,8 @@
 class Prototype < ActiveRecord::Base
   belongs_to :user
-  has_many :likes
-  has_many :comments
-  has_many :prototype_images, inverse_of: :prototype
+  has_many :likes, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
+  has_many :prototype_images, dependent: :delete_all
   acts_as_taggable
 
   paginates_per 8
