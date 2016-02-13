@@ -21,10 +21,15 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @prototype_images = @prototype.prototype_images.build
   end
 
   def update
-      @prototype.update(update_params) ? (redirect_to root_path, notice: 'prototype is scussesfully updated!!') : (render :edit, alert: 'wops somthing went wrong!')
+    if @prototype.update(update_params)
+      redirect_to :root, flash: {success: "Prototype was successfully updated."}
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,13 +44,13 @@ class PrototypesController < ApplicationController
 
   def prototype_params
     params.require(:prototype).permit(
+      :id,
       :title,
       :catch_copy,
       :concept,
       prototype_images_attributes: [
       :image,
       :status,
-      :prototype_id
       ]
     ).merge(
       tag_list: params[:prototype][:tag]
@@ -58,9 +63,9 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       prototype_images_attributes: [
-      :id,
       :image,
-      :status
+      :status,
+      :id
       ]
     )
   end
