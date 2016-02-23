@@ -17,7 +17,11 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = current_user.prototypes.new(prototype_params)
-    @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
+    if prototype_params[:prototype_images_attributes]['0'][:image].blank?
+      render :new, alert: 'メインイメージは空欄に出来ません！'
+    else
+      @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
+    end
   end
 
   def edit
