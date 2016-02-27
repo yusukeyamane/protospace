@@ -18,7 +18,8 @@ class PrototypesController < ApplicationController
   def create
     @prototype = current_user.prototypes.new(prototype_params)
     if prototype_params[:prototype_images_attributes]['0'][:image].blank?
-      render :new, alert: 'メインイメージは空欄に出来ません！'
+      flash.now[:alert] = "Prototypeのメインイメージは空には出来ません！"
+      render :new
     else
       @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
     end
