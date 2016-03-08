@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @comments = Comment.where(prototype_id: params[:prototype_id])
     @prototype = Prototype.find(params[:prototype_id])
     current_user.comments.create(comments_params)
-    render layout: false
   end
 
   private
