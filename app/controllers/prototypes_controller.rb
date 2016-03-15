@@ -56,6 +56,7 @@ class PrototypesController < ApplicationController
       prototype_images_attributes: [
       :image,
       :status,
+      :image_cache,
       ]
     ).merge(
       tag_list: params[:prototype][:tag]
