@@ -26,7 +26,7 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @prototype_images = @prototype.prototype_images.build
+    @sub_images = @prototype.prototype_images.where(status: 2)
   end
 
   def update

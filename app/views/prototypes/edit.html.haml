@@ -18,21 +18,12 @@
             = main_image.hidden_field :status, value: PrototypeImage.statuses[:main]
       .col-md-12
         %ul.proto-sub-list.list-group
-          = f.fields_for :prototype_images, (@prototype.prototype_images.sub.first) do |sub_image|
+          = f.fields_for :prototype_images, @sub_images do |sub_image|
             %li.list-group-item.col-md-4
-              .image-upload.sub_image_preview1{style: "background-image: url(#{@prototype.prototype_images.sub.first});"}
+              .image-upload.sub_image_preview1{style: "background-image: url(#{@prototype.prototype_images.sub.first.image});"}
                 = sub_image.file_field :image
                 = sub_image.hidden_field :status, value: PrototypeImage.statuses[:sub]
 
-          = f.fields_for :prototype_images, (@prototype.prototype_images.sub.second) do |sub_image|
-            %li.list-group-item.col-md-4
-              .image-upload.sub_image_preview2{style: "background-image: url(#{@prototype.prototype_images.sub.second});"}
-                = sub_image.file_field :image
-                = sub_image.hidden_field :status, value: PrototypeImage.statuses[:sub]
-
-          %li.list-group-item.col-md-4
-            .image-upload-plus
-              %span +
     .row.proto-description
       .col-md-12
         = f.text_field :catch_copy, placeholder: "Catch Copy"
