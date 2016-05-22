@@ -12,14 +12,14 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    @prototype.prototype_images.build
+    3.times { @prototype.prototype_images.build }
   end
 
   def create
     @prototype = current_user.prototypes.new(prototype_params)
     if prototype_params[:prototype_images_attributes]['0'][:image].blank?
       flash.now[:alert] = "Prototypeのメインイメージは空には出来ません！"
-      render :new
+      redirect_to new_prototype_url
     else
       @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
     end
