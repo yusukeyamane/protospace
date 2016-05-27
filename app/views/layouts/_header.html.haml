@@ -7,7 +7,7 @@
     = link_to image_tag("logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "36px"), root_path, class: "navbar-brand"
     .navbar-collapse.collapse.navbar-responsive-collapse
       //not login
-      -unless user_signed_in?
+      - unless user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li
             .btn.btn-primary.navbar-btn

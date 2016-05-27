@@ -18,7 +18,7 @@
             = main_image.hidden_field :status, value: PrototypeImage.statuses[:main]
       .col-md-12
         %ul.proto-sub-list.list-group
-          = f.fields_for :prototype_images, @sub_images do |sub_image|
+          = f.fields_for :prototype_images, @prototype.prototype_images.sub do |sub_image|
             %li.list-group-item.col-md-4
               .image-upload.sub_image_preview1{style: "background-image: url(#{@prototype.prototype_images.sub.first.image});"}
                 = sub_image.file_field :image

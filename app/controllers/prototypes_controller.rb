@@ -12,7 +12,8 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    3.times { @prototype.prototype_images.build }
+    @main = @prototype.prototype_images.build
+    @sub = 2.times { @prototype.prototype_images.build }
   end
 
   def create
@@ -21,12 +22,11 @@ class PrototypesController < ApplicationController
       flash.now[:alert] = "Prototypeのメインイメージは空には出来ません！"
       redirect_to new_prototype_url
     else
-      @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!')  : (render :new, alert: 'wops somthing went wrong!')
+      @prototype.save ? (redirect_to root_path, notice: 'prototype is scussesfully created!!') : (render :new, alert: 'wops somthing went wrong!')
     end
   end
 
   def edit
-    @sub_images = @prototype.prototype_images.where(status: 2)
   end
 
   def update

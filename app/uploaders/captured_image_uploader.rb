@@ -53,4 +53,8 @@ class CapturedImageUploader < CarrierWave::Uploader::Base
     name.downcase
   end
 
+ def default_url
+    '/uploads/noimage.png'
+ end
+
 end

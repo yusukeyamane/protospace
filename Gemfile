@@ -37,6 +37,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'config'
 gem 'nokogiri'
 gem 'fog'
+gem 'ransack'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
