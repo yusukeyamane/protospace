@@ -3,4 +3,5 @@ class PrototypeImage < ActiveRecord::Base
 
   enum status: { main: '1', sub: '2' }
   belongs_to :prototype
+  validates :status, presence: true
 end

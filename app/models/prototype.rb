@@ -7,8 +7,12 @@ class Prototype < ActiveRecord::Base
 
   paginates_per 8
 
-  def like_user(user)
-    likes.find_by(user_id: user.id)
+  def like_user?(user)
+    if likes.find_by(user_id: user.id)
+      return true
+    else
+      return false
+    end
   end
 
   def validate_image
