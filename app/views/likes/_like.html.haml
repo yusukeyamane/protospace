@@ -5,7 +5,7 @@
         = image_tag("icon_heart_red.svg")
         Like
         %span.num
-          = @prototype.likes.count
+          = @prototype.likes_count
   - else
     = form_for [@prototype, @like], method: :post, remote: true do |f|
       %button.btn.btn-default.decrement-button
@@ -13,11 +13,11 @@
         = image_tag("icon_heart.svg")
         Like
         %span.num
-          = @prototype.likes.count
+          = @prototype.likes_count
 - else
   = link_to new_user_session_path do
     %button.btn.btn-default.increment-button#like-button
       = image_tag("icon_heart.svg")
       Like
       %span.num
-        = @prototype.likes.count
+        = @prototype.likes_count
