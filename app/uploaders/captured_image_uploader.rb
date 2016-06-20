@@ -54,7 +54,7 @@ class CapturedImageUploader < CarrierWave::Uploader::Base
   end
 
  def default_url
-    '/uploads/noimage.png'
+    '/images/noimage.png'
  end
 
 end
